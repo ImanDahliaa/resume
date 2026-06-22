@@ -372,7 +372,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden; /* Ensures the image respects the rounded corners */
+            overflow: hidden;
             color: var(--accent);
             font-size: 1.2rem;
             border: 1px solid var(--border);
@@ -406,11 +406,20 @@
             color: var(--text-muted);
             font-weight: 400;
         }
-        .timeline-content p {
-            font-size: 0.88rem;
+
+        /* ── Bullet list for experience ── */
+        .exp-bullets {
+            list-style: disc;
+            padding-left: 1.2rem;
+            margin: 0.3rem 0 0.5rem 0;
             color: var(--text-secondary);
-            line-height: 1.5;
+            font-size: 0.88rem;
+            line-height: 1.6;
         }
+        .exp-bullets li {
+            margin-bottom: 0.15rem;
+        }
+
         .timeline-content .tech-stack {
             display: flex;
             flex-wrap: wrap;
@@ -649,7 +658,7 @@
             <header class="hero">
                 <div class="hero-avatar">
                     <!-- ★ REPLACE THE src URL BELOW WITH YOUR ACTUAL PROFILE PICTURE ★ -->
-                    <img src="11.jpeg" />
+                    <img src="11.jpeg" alt="Mohamad Iman" />
                 </div>
                 <div class="hero-text">
                     <h1>Mohamad Iman bin Mohamad Azam</h1>
@@ -764,10 +773,12 @@
                             <div class="timeline-content">
                                 <h4>Manufacturing Technician</h4>
                                 <div class="meta">ViTrox Technologies Sdn. Bhd. (SubCon) <span>· 2022 – 2023</span></div>
-                                <p>
-                                    Responsible for rework from internal and external sites. Arranged scheduled jobs and ensured on-time delivery.
-                                    Utilised assembly documentation (schematics, BOMs, procedures) and performed soldering on light sources and cables.
-                                </p>
+                                <!-- ✅ Bullet points for experience -->
+                                <ul class="exp-bullets">
+                                    <li>Responsible for rework from internal and external sites.</li>
+                                    <li>Arranged scheduled jobs and ensured on-time delivery.</li>
+                                    <li>Utilised assembly documentation (schematics, BOMs, procedures) and performed soldering on light sources and cables.</li>
+                                </ul>
                                 <div class="tech-stack">
                                     <small>Soldering</small>
                                     <small>BOM</small>
@@ -789,7 +800,7 @@
                         <div class="timeline-item" style="border-bottom:0;padding-bottom:0;margin-bottom:0;">
                             <div class="timeline-icon">
                                 <!-- ★ REPLACE WITH YOUR UniMAP LOGO URL ★ -->
-                                <img src="images.jfif" />
+                                <img src="images.jfif" alt="UniMAP Logo" />
                             </div>
                             <div class="timeline-content">
                                 <h4>Bachelor of Electronics Engineering Technology</h4>
@@ -802,7 +813,7 @@
                         <div class="timeline-item" style="border-bottom:0;padding-bottom:0;margin-bottom:0;border-top:1px solid var(--border);padding-top:1.5rem;margin-top:1.5rem;">
                             <div class="timeline-icon">
                                 <!-- ★ REPLACE WITH YOUR POLITEKNIK LOGO URL ★ -->
-                                <img src="psp.png" />
+                                <img src="psp.png" alt="Politeknik Seberang Perai Logo" />
                             </div>
                             <div class="timeline-content">
                                 <h4>Diploma in Electrical and Electronic Engineering</h4>
