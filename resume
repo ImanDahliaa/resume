@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohd Iman · Electrical & Electronic Engineer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ───────────── RESET & BASE ───────────── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0b0f1a;
+            --bg-secondary: #131a2b;
+            --bg-card: #1a2338;
+            --bg-card-hover: #212d47;
+            --text-primary: #e8edf5;
+            --text-secondary: #a0b4d0;
+            --text-muted: #6f88aa;
+            --accent-1: #5b9aff;
+            --accent-2: #3ccfcf;
+            --accent-gold: #f0c75e;
+            --border-glow: rgba(91, 154, 255, 0.15);
+            --shadow-glow: 0 8px 32px rgba(0, 20, 60, 0.6);
+            --radius: 14px;
+            --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* ───────────── SCROLLBAR ───────────── */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-1);
+            border-radius: 10px;
+        }
+
+        /* ───────────── MAIN WRAPPER ───────────── */
+        .resume-wrapper {
+            max-width: 1100px;
+            width: 100%;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 2.5rem 2.8rem;
+            box-shadow: var(--shadow-glow), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* subtle circuit‑inspired decorative lines */
+        .resume-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle at 70% 30%, rgba(91, 154, 255, 0.04), transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .resume-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle at 30% 70%, rgba(60, 207, 207, 0.04), transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* all content sits above pseudo-elements */
+        .resume-wrapper>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ───────────── HEADER / HERO ───────────── */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 2.2rem;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0b0f1a;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 3px rgba(91, 154, 255, 0.25), 0 0 0 6px rgba(91, 154, 255, 0.08);
+            user-select: none;
+        }
+
+        .name-title h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--accent-1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .name-title .badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            background: rgba(240, 199, 94, 0.12);
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            border: 1px solid rgba(240, 199, 94, 0.15);
+            margin-top: 0.2rem;
+            letter-spacing: 0.3px;
+            -webkit-text-fill-color: var(--accent-gold);
+        }
+
+        .header-right {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.8rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .header-right .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: var(--transition);
+        }
+        .header-right .contact-item i {
+            color: var(--accent-1);
+            font-size: 1rem;
+            width: 1.2rem;
+            text-align: center;
+        }
+        .header-right .contact-item:hover {
+            color: var(--text-primary);
+        }
+
+        /* ───────────── GRID LAYOUT ───────────── */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1.8fr;
+            gap: 2rem 2.5rem;
+        }
+
+        /* ───────────── SIDEBAR ───────────── */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* ───────────── CARDS ───────────── */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.5rem 1.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: var(--transition);
+        }
+        .card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(91, 154, 255, 0.12);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .card-title i {
+            color: var(--accent-1);
+            font-size: 0.9rem;
+        }
+
+        /* ───────────── OBJECTIVE ───────────── */
+        .objective-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .objective-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* ───────────── SKILLS ───────────── */
+        .skill-group {
+            margin-bottom: 1.2rem;
+        }
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+        .skill-group-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .skill-tag {
+            background: rgba(91, 154, 255, 0.08);
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            border: 1px solid rgba(91, 154, 255, 0.08);
+            transition: var(--transition);
+            font-weight: 400;
+        }
+        .skill-tag:hover {
+            background: rgba(91, 154, 255, 0.18);
+            color: var(--text-primary);
+            border-color: rgba(91, 154, 255, 0.25);
+            transform: translateY(-1px);
+        }
+        .skill-tag i {
+            margin-right: 0.3rem;
+            font-size: 0.7rem;
+            color: var(--accent-2);
+        }
+
+        /* ───────────── REFERENCES ───────────── */
+        .ref-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .ref-item:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+        .ref-item .ref-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+        .ref-item .ref-title {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .ref-item .ref-company {
+            font-size: 0.8rem;
+            color: var(--accent-1);
+            font-weight: 500;
+        }
+        .ref-item .ref-phone {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.1rem;
+        }
+        .ref-item .ref-phone i {
+            color: var(--accent-2);
+            margin-right: 0.4rem;
+            font-size: 0.75rem;
+        }
+
+        /* ───────────── MAIN CONTENT ───────────── */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* ───────────── EDUCATION ───────────── */
+        .edu-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .edu-item:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .edu-item .edu-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .edu-item .edu-sub {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem 1rem;
+            align-items: center;
+        }
+        .edu-item .edu-sub .edu-cgpa {
+            color: var(--accent-gold);
+            font-weight: 600;
+            background: rgba(240, 199, 94, 0.08);
+            padding: 0.05rem 0.8rem;
+            border-radius: 30px;
+            border: 1px solid rgba(240, 199, 94, 0.08);
+            font-size: 0.8rem;
+        }
+        .edu-item .edu-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+        .edu-item .edu-meta i {
+            color: var(--accent-2);
+            margin-right: 0.3rem;
+        }
+
+        /* ───────────── EXPERIENCE ───────────── */
+        .exp-item {
+            padding-bottom: 1.4rem;
+            margin-bottom: 1.4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .exp-item:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .exp-item .exp-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.3rem 1rem;
+            margin-bottom: 0.3rem;
+        }
+        .exp-item .exp-role {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .exp-item .exp-company {
+            font-size: 0.9rem;
+            color: var(--accent-1);
+            font-weight: 500;
+        }
+        .exp-item .exp-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+        }
+        .exp-item .exp-desc {
+            margin-top: 0.5rem;
+            padding-left: 0.2rem;
+        }
+        .exp-item .exp-desc li {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 0.2rem 0 0.2rem 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+        .exp-item .exp-desc li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-2);
+            font-size: 0.8rem;
+        }
+
+        /* ───────────── ACHIEVEMENTS ───────────── */
+        .achievement-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.8rem;
+        }
+        .achievement-badge {
+            background: rgba(60, 207, 207, 0.06);
+            border: 1px solid rgba(60, 207, 207, 0.08);
+            border-radius: 30px;
+            padding: 0.3rem 1.1rem;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: var(--transition);
+        }
+        .achievement-badge i {
+            color: var(--accent-gold);
+            font-size: 0.7rem;
+        }
+        .achievement-badge:hover {
+            background: rgba(60, 207, 207, 0.12);
+            color: var(--text-primary);
+            border-color: rgba(60, 207, 207, 0.2);
+            transform: translateY(-1px);
+        }
+
+        /* ───────────── RESPONSIVE ───────────── */
+        @media (max-width: 900px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .resume-wrapper {
+                padding: 1.8rem 1.5rem;
+            }
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+            }
+            .header-left {
+                flex-wrap: wrap;
+            }
+            .header-right {
+                justify-content: flex-start;
+                gap: 0.8rem 1.5rem;
+            }
+            .avatar {
+                width: 64px;
+                height: 64px;
+                font-size: 1.6rem;
+            }
+            .name-title h1 {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .resume-wrapper {
+                padding: 1.2rem 1rem;
+                border-radius: 10px;
+            }
+            .name-title h1 {
+                font-size: 1.4rem;
+            }
+            .card {
+                padding: 1.2rem 1rem;
+            }
+            .header-right {
+                font-size: 0.8rem;
+                flex-direction: column;
+                gap: 0.4rem;
+            }
+            .exp-item .exp-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .achievement-grid {
+                gap: 0.4rem;
+            }
+            .skill-tag {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.7rem;
+            }
+        }
+
+        /* ───────────── ANIMATIONS ───────────── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+        .fade-up:nth-child(2) {
+            animation-delay: 0.08s;
+        }
+        .fade-up:nth-child(3) {
+            animation-delay: 0.16s;
+        }
+        .fade-up:nth-child(4) {
+            animation-delay: 0.24s;
+        }
+        .fade-up:nth-child(5) {
+            animation-delay: 0.32s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* small pulse on accent */
+        .pulse-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-2);
+            border-radius: 50%;
+            margin-right: 0.4rem;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(0.9);
+            }
+        }
+
+        /* ───────────── PRINT HINT ───────────── */
+        @media print {
+            body {
+                background: #fff;
+                padding: 0.2in;
+            }
+            .resume-wrapper {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                background: #fff;
+                padding: 1.5rem;
+            }
+            .card {
+                background: #f7f9fc;
+                border-color: #ddd;
+            }
+            .card:hover {
+                background: #f7f9fc;
+                box-shadow: none;
+            }
+            .name-title h1 {
+                -webkit-text-fill-color: #0b0f1a;
+                background: none;
+                color: #0b0f1a;
+            }
+            .name-title .badge {
+                -webkit-text-fill-color: #b8860b;
+                color: #b8860b;
+            }
+            .avatar {
+                background: #ccc;
+                color: #222;
+            }
+            .header-right .contact-item i {
+                color: #555;
+            }
+            .skill-tag {
+                background: #eef2f7;
+                border-color: #d0d8e0;
+                color: #222;
+            }
+            .achievement-badge {
+                background: #eef2f7;
+                border-color: #d0d8e0;
+                color: #222;
+            }
+            .exp-item .exp-desc li::before {
+                color: #555;
+            }
+            .edu-item .edu-sub .edu-cgpa {
+                background: #eef2f7;
+                border-color: #d0d8e0;
+                color: #b8860b;
+            }
+            .ref-item .ref-company {
+                color: #1a4b8c;
+            }
+            .ref-item .ref-phone i {
+                color: #555;
+            }
+            .card-title i {
+                color: #555;
+            }
+            .pulse-dot {
+                background: #555;
+                animation: none;
+            }
+            .fade-up {
+                opacity: 1 !important;
+                transform: none !important;
+                animation: none !important;
+            }
+            .resume-wrapper::before,
+            .resume-wrapper::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-wrapper">
+
+        <!-- ═══ HEADER ═══ -->
+        <header class="header fade-up">
+            <div class="header-left">
+                <div class="avatar">MI</div>
+                <div class="name-title">
+                    <h1>Mohd Iman</h1>
+                    <span class="badge"><i class="fas fa-bolt" style="margin-right:0.3rem;"></i> Diploma · Electrical &amp; Electronic Eng.</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <span class="contact-item"><i class="fas fa-map-pin"></i> Malaysia</span>
+                <span class="contact-item"><i class="fas fa-envelope"></i> iman@email.com</span>
+                <span class="contact-item"><i class="fas fa-phone-alt"></i> +60 12-345 6789</span>
+                <span class="contact-item"><i class="fab fa-linkedin-in"></i> linkedin.com/in/mohd-iman</span>
+            </div>
+        </header>
+
+        <!-- ═══ GRID ═══ -->
+        <div class="grid-2col">
+
+            <!-- ─── SIDEBAR ─── -->
+            <aside class="sidebar">
+
+                <!-- OBJECTIVE -->
+                <section class="card fade-up">
+                    <div class="card-title"><i class="fas fa-bullseye"></i> Objective</div>
+                    <div class="objective-text">
+                        <strong>Diploma graduate</strong> in Electrical &amp; Electronic Engineering from
+                        <strong>Politeknik Seberang Perai</strong> (CGPA 3.28). Seeking a position to
+                        explore career options for the future. A <strong>hard‑working, self‑motivated</strong>
+                        individual with a friendly and approachable personality. Eager to enhance knowledge
+                        and skills while contributing the best of my abilities for the growth of the company.
+                    </div>
+                </section>
+
+                <!-- SKILLS -->
+                <section class="card fade-up">
+                    <div class="card-title"><i class="fas fa-microchip"></i> Skills</div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-label"><i class="fas fa-laptop-code" style="margin-right:0.3rem;"></i> Software</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fas fa-check-circle"></i> Microsoft Office</span>
+                            <span class="skill-tag"><i class="fas fa-check-circle"></i> Proteus 8</span>
+                            <span class="skill-tag"><i class="fas fa-check-circle"></i> Adobe Photoshop</span>
+                            <span class="skill-tag"><i class="fas fa-check-circle"></i> AutoCAD</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-label"><i class="fas fa-language" style="margin-right:0.3rem;"></i> Language</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fas fa-check-circle"></i> Bahasa Malaysia (native)</span>
+                            <span class="skill-tag"><i class="fas fa-check-circle"></i> English (intermediate)</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group" style="margin-bottom:0;">
+                        <div class="skill-group-label"><i class="fas fa-tools" style="margin-right:0.3rem;"></i> Hardware</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fas fa-check-circle"></i> Soldering</span>
+                            <span class="skill-tag"><i class="fas fa-check-circle"></i> Rework &amp; Assembly</span>
+                            <span class="skill-tag"><i class="fas fa-check-circle"></i> Schematics &amp; BOM</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section class="card fade-up">
+                    <div class="card-title"><i class="fas fa-address-card"></i> Reference</div>
+                    <div class="ref-item">
+                        <span class="ref-name">Matthew Lim Kai Teng</span>
+                        <span class="ref-title">Manufacturing Executive</span>
+                        <span class="ref-company">ViTrox Technologies Sdn. Bhd.</span>
+                        <span class="ref-phone"><i class="fas fa-phone-alt"></i> 016-665 1507</span>
+                    </div>
+                </section>
+
+            </aside>
+
+            <!-- ─── MAIN CONTENT ─── -->
+            <main class="main-content">
+
+                <!-- EDUCATION -->
+                <section class="card fade-up">
+                    <div class="card-title"><i class="fas fa-graduation-cap"></i> Education</div>
+
+                    <div class="edu-item">
+                        <div class="edu-title">Diploma in Electrical &amp; Electronic Engineering</div>
+                        <div class="edu-sub">
+                            <span>Politeknik Seberang Perai</span>
+                            <span class="edu-cgpa"><i class="fas fa-star" style="margin-right:0.3rem;"></i> CGPA 3.28</span>
+                        </div>
+                        <div class="edu-meta"><i class="fas fa-calendar-alt"></i> 2019 – 2022</div>
+                    </div>
+
+                    <div class="edu-item" style="border-bottom:0; margin-bottom:0; padding-bottom:0;">
+                        <div class="edu-title">Sijil Pelajaran Malaysia (SPM)</div>
+                        <div class="edu-sub">
+                            <span>Sekolah Menengah Kebangsaan Penanti</span>
+                            <span style="color:var(--text-muted); font-size:0.8rem;">Art stream · 1A 2B 5C</span>
+                        </div>
+                        <div class="edu-meta"><i class="fas fa-calendar-alt"></i> 2018</div>
+                    </div>
+                </section>
+
+                <!-- WORK EXPERIENCE -->
+                <section class="card fade-up">
+                    <div class="card-title"><i class="fas fa-briefcase"></i> Work Experience</div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-role">Manufacturing Technician</span>
+                            <span class="exp-company">ViTrox Technologies Sdn. Bhd. (SubCon)</span>
+                            <span class="exp-date"><i class="far fa-clock"></i> 2022 – Present</span>
+                        </div>
+                        <ul class="exp-desc">
+                            <li>Responsible for rework operations from both internal and external sites.</li>
+                            <li>Arranged own scheduled jobs and ensured timely completion.</li>
+                            <li>Understood and utilised assembly documentation including Schematics, BOMs, and procedures.</li>
+                            <li>Performed soldering tasks such as light source and cable assemblies.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- ACHIEVEMENTS -->
+                <section class="card fade-up">
+                    <div class="card-title"><i class="fas fa-trophy"></i> Achievements</div>
+                    <div class="achievement-grid">
+                        <span class="achievement-badge"><i class="fas fa-award"></i> Anugerah Ketua Jabatan, PSP (Sesi 1 2021/2022)</span>
+                        <span class="achievement-badge"><i class="fas fa-award"></i> Anugerah Ketua Jabatan, PSP (Sesi Dec 2020)</span>
+                        <span class="achievement-badge"><i class="fas fa-recycle"></i> Bahaya E-Waste &amp; Kaedah Pengurusan Selamat</span>
+                        <span class="achievement-badge"><i class="fas fa-flask"></i> Solid &amp; Fluid in Engineering Science</span>
+                        <span class="achievement-badge"><i class="fas fa-calendar-check"></i> Anugerah Kehadiran Penuh 2018, SMK Penanti</span>
+                    </div>
+                </section>
+
+            </main>
+
+        </div>
+        <!-- end grid -->
+
+        <!-- small footer / tech signature -->
+        <div style="margin-top:2.5rem; padding-top:1.2rem; border-top:1px solid rgba(255,255,255,0.04); display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem 1rem; font-size:0.7rem; color:var(--text-muted); letter-spacing:0.3px;">
+            <span><i class="fas fa-code" style="margin-right:0.3rem; color:var(--accent-1);"></i> Electrical &amp; Electronic Engineering · Diploma 2022</span>
+            <span><i class="fas fa-sync-alt" style="margin-right:0.3rem; color:var(--accent-2);"></i> <span class="pulse-dot" style="display:inline-block; width:6px; height:6px; margin-right:0;"></span> open to opportunities</span>
+        </div>
+
+    </div>
+    <!-- end resume-wrapper -->
+
+    <!-- ─── tiny script for interactive hover / extra polish ─── -->
+    <script>
+        (function() {
+            // subtle parallax-like tilt on cards (desktop only)
+            if (window.innerWidth > 768) {
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = (e.clientX - rect.left) / rect.width - 0.5;
+                        const y = (e.clientY - rect.top) / rect.height - 0.5;
+                        card.style.transform =
+                            `perspective(800px) rotateX(${y * 2}deg) rotateY(${x * 2}deg) translateY(-2px)`;
+                        card.style.transition = 'transform 0.08s ease';
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)';
+                        card.style.transition = 'transform 0.3s ease';
+                    });
+                });
+            }
+
+            // year auto‑update in footer (optional)
+            const yearSpan = document.querySelector('.footer-year');
+            if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+        })();
+    </script>
+
+</body>
+</html>
